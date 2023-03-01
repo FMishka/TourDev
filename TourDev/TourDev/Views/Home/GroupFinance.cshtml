@@ -1,0 +1,28 @@
+﻿@using (Html.BeginForm())
+{
+    <p>
+        Поиск по цели:
+        <select class="form-select" name="searchPurpose" asp-items="ViewBag.Purposes">
+            <option value="">Выбирите цель</option>
+        </select>
+        <input type="submit" value="Search" class="btn btn-success" />
+    </p>
+}
+<table class="table" style="color: white">
+    <tr>
+        <td>Стоимость билета</td>
+        <td>Стоимость тура</td>
+        <td>Стоимость багажа</td>
+        <td>Траты на транспортировку груза</td>
+        <td>Траты на загрузку груза</td>
+        <td>Траты на выгрузку груза</td>
+    </tr>
+    <tr>
+        <td>@ViewBag.costTickets</td>
+        <td>@ViewBag.costTour</td>
+        <td>@ViewBag.costBag</td>
+        <td>@ViewBag.transpCost</td>
+        <td>@ViewBag.loadingCost</td>
+        <td>@ViewBag.unloadingCost</td>
+    </tr>
+</table>

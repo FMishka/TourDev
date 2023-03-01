@@ -1,0 +1,30 @@
+﻿@using (Html.BeginForm())
+{
+    <p>
+        Начало даты
+        <div class="form-group">
+            <input name="startDate" type="date" class="form-select" />
+        </div>
+        Конец даты
+        <div class="form-group">
+            <input name="endDate" type="date" class="form-select" />
+        </div>
+        <input type="submit" value="Search" class="btn btn-success" />
+    </p>
+}
+<table class="table" style="color: white">
+    <tr>
+        <td>Кол-во мест груза</td>
+        <td>Вес груза</td>
+        <td>Кол-во самолётов</td>
+        <td>Кол-во грузовых</td>
+        <td>Кол-во пассажирских</td>
+    </tr>
+    <tr>
+        <td>@ViewBag.count</td>
+        <td>@ViewBag.weight</td>
+        <td>@ViewBag.countFly</td>
+        <td>@ViewBag.warehouse</td>
+        <td>@ViewBag.pass</td>
+    </tr>
+</table>

@@ -1,0 +1,22 @@
+﻿@model IEnumerable<Excursion>
+@{
+    ViewData["Title"] = "Популярные экскурсии";
+}
+@using(Html.BeginForm()){
+    @Html.DropDownList("agentId", ViewBag.agents as SelectList, "Выбрать агентство", new{@class="form-select"})
+    <input type="submit" value="Search" class="btn btn-success" />
+}
+<table class="table" style="color: white">
+    <tr>
+        <td>Имя</td>
+        <td>Кол-во групп</td>
+    </tr>
+    @foreach (var item in ViewBag.ex)
+    {
+        <tr>
+            <td>@item.name</td>
+            <td>@item.count</td>
+
+        </tr>
+    }
+</table>

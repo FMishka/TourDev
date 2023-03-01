@@ -1,0 +1,19 @@
+﻿@model IEnumerable<Hotel>
+@{
+    ViewData["Title"] = "Отели";
+}
+<table class="table" style="color: white">
+    <tr>
+        <td>Ид</td>
+        <td>Название</td>
+        <td>Звёздность</td>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Id</td>
+            <td>@item.Name</td>
+            <td>@item.Rating</td>
+        </tr>
+    }
+</table>

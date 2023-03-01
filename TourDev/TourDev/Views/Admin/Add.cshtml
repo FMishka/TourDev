@@ -1,0 +1,34 @@
+﻿@model IEnumerable<Ticket>
+@{
+    var message = "";
+}
+@using (Html.BeginForm()){
+<div class="form-group">
+    <h3>Турист</h3>
+    @Html.DropDownList("tourist", ViewBag.Tourists as SelectList, "Выбрать туриста", new{@class="form-select"})
+    <h3>Дата прибытия</h3>
+    <input name="startDate" type="date" class="form-select" />
+    <h3>Дата возвращения</h3>
+    <input name="endDate" type="date" class="form-select" />
+    <h3>Страна</h3>
+    <input name="country" class="form-select" />
+    <h3>Багаж</h3>
+    <select class="form-select" name="bagId" asp-items="ViewBag.Bag">
+        <option value="">Выбрать багаж</option>
+    </select>
+    <h3>Тур</h3>
+    @Html.DropDownList("tourId", ViewBag.Tour as SelectList, "Выбрать тур", new{@class="form-select"})
+    <h3>Группа</h3>
+    <select class="form-select" name="groupId" asp-items="ViewBag.Group">
+        <option value="">Выбрать группу</option>
+    </select>
+    <h3>Отель</h3>
+    @Html.DropDownList("hotelId", ViewBag.Hotel as SelectList, "Выбрать отель", new{@class="form-select"})
+    <h3>Цена</h3>
+    <input name="costs" class="form-select" />
+    <h3>Рейс</h3>
+    @Html.DropDownList("fly", ViewBag.F as SelectList, "Выбрать рейс", new{@class="form-select"})
+</div>
+
+<input type="submit" value="Добавить" class="btn btn-success" />
+}

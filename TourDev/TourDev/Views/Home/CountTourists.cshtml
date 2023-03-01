@@ -1,0 +1,18 @@
+﻿@{
+    ViewData["Title"] = "Кол-во туристов";
+}
+@using (Html.BeginForm())
+{
+    <p>
+        Начало даты
+        <div class="form-group">
+            <input name="startDate" type="date" class="form-select" />
+        </div>
+        Конец даты
+        <div class="form-group">
+            <input name="endDate" type="date" class="form-select" />
+        </div>
+        <input type="submit" value="Search" class="btn btn-success" />
+    </p>
+}
+<H1>Кол-во туристов: @ViewBag.CountTourists</H1>

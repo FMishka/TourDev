@@ -1,0 +1,17 @@
+﻿@using (Html.BeginForm())
+{
+    @Html.DropDownList("fly", ViewBag.flies as SelectList, "Выбрать рейс", new{@class="form-select"})
+    <input type="submit" value="Search" class="btn btn-success" />
+}
+<table class="table" style="color: white">
+    <tr>
+        <td>Кол-во мест</td>
+        <td>Вес груза</td>
+        <td>Кол-во мест груза</td>
+    </tr>
+    <tr>
+            <td>@ViewBag.count</td>
+            <td>@ViewBag.weight</td>
+            <td>@ViewBag.place</td>
+    </tr>
+</table>

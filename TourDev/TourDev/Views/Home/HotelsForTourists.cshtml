@@ -1,0 +1,40 @@
+﻿@model IEnumerable<Ticket>
+@using (Html.BeginForm())
+{
+    <p>
+        Начало даты
+        <div class="form-group">
+            <input name="startDate" type="date" class="form-select" />
+        </div>
+        Конец даты
+        <div class="form-group">
+            <input name="endDate" type="date" class="form-select" />
+        </div>
+        <input type="submit" value="Search" class="btn btn-success" />
+    </p>
+
+}
+<table class="table" style="color: white">
+    <tr>
+        <td>Отель</td>
+        <td>Турист</td>
+        <td>Кол-во людей в номере</td>
+        <td>Начало даты</td>
+        <td>Конец даты</td>
+    </tr>
+    <H1 style="color:red">@ViewBag.Result</H1>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Hotel.Name</td>
+            <td>@item.Tourist.Initials</td>
+            <td>
+                @{
+                    int countTourists = 1 + item.Tourist.Children_count;
+                }
+            @countTourists</td>
+            <td>@item.Arrival_date.ToShortDateString()</td>
+            <td>@item.Departure_date.ToShortDateString()</td>
+        </tr>
+    }
+</table>

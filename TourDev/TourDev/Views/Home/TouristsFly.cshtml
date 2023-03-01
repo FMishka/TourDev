@@ -1,0 +1,30 @@
+﻿@model IEnumerable<Ticket>
+@{
+    ViewData["Title"] = "Туристы по рейсам";
+}
+@using (Html.BeginForm())
+{
+    <p>
+        @Html.DropDownList("fly", ViewBag.flies as SelectList, "Выберите рейс", new{@class="form-select"})
+        <input type="submit" value="Search" class="btn btn-success" />
+    </p>
+}
+<table class="table" style="color: white">
+    <tr>
+        <td>Инициалы</td>
+        <td>Гостиница</td>
+        <td>Груз</td>
+        <td>Бирка</td>
+        <td>Маркировка</td>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Tourist.Initials</td>
+            <td>@item.Hotel.Name</td>
+            <td>@item.Bag.Id</td>
+            <td>@item.Bag.Tag</td>
+            <td>@item.Bag.Mark</td>
+        </tr>
+    }
+</table>

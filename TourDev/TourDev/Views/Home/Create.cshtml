@@ -1,0 +1,33 @@
+﻿@model TourDev.Models.Tourist
+@{
+    ViewBag.Title = "Добавление пользователя";
+}
+<form asp-action="create" asp-controller="home">
+    <div class="form-group">
+        <label asp-for="Initials" class="control-label">Инициалы</label>
+        <input type="text" asp-for="Initials" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Passport" class="control-label">Паспорт</label>
+        <input type="text" asp-for="Passport" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Gender" class="control-label">Пол</label>
+        <input type="text" asp-for="Gender" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Age" class="control-label">Возраст</label>
+        <input type="number" asp-for="Age" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Children_count" class="control-label">Кол-во детей</label>
+        <input type="number" asp-for="Children_count" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Visit_purpose" class="control-label">Цель посещения</label>
+        <input type="text" asp-for="Visit_purpose" class="form-control" />
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Отправить" class="btn btn-success" />
+    </div>
+</form>

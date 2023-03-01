@@ -1,0 +1,32 @@
+﻿@model Ticket
+@{
+    var message = "";
+}
+@using (Html.BeginForm("EditLogic", "Admin"))
+{
+    <div class="form-group">
+        @Html.HiddenFor(m => m.Id)
+        <h3>Турист</h3>
+        @Html.DropDownList("tourist", ViewBag.Tourists as SelectList, new{@class="form-select"})
+        <h3>Дата прибытия</h3>
+        <input name="startDate" type="date" asp-for="@Model.Arrival_date" class="form-control" />
+        <h3>Дата возвращения</h3>
+        <input name="endDate" type="date" asp-for="@Model.Departure_date" class="form-control" />
+        <h3>Страна</h3>
+        <input name="country" class="form-select" value="@Model.Country"/>
+        <h3>Багаж</h3>
+        <select class="form-select" name="bagId" asp-items="ViewBag.Bag"></select>
+        <h3>Тур</h3>
+        @Html.DropDownList("tourId", ViewBag.Tour as SelectList, new{@class="form-select"})
+        <h3>Группа</h3>
+        <select class="form-select" name="groupId" asp-items="ViewBag.Group"></select>
+        <h3>Отель</h3>
+        @Html.DropDownList("hotelId", ViewBag.Hotel as SelectList, new{@class="form-select"})
+        <h3>Цена</h3>
+        <input name="costs" class="form-select" value="@Model.Cost"/>
+        <h3>Рейс</h3>
+        @Html.DropDownList("fly", ViewBag.F as SelectList, new{@class="form-select"})
+    </div>
+
+    <input type="submit" value="Изменить" name="edit" class="btn btn-warning" />
+}

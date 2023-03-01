@@ -1,0 +1,29 @@
+﻿@model IEnumerable<Tourist>
+@{
+    ViewData["Title"] = "Туристы";
+}
+<table class="table" style="color: white">
+    <tr>
+        <td>Ид</td>
+        <td>Имя</td>
+        <td>Возраст</td>
+        <td>Паспорт</td>
+        <td>Пол</td>
+        <td>Кол-во детей</td>
+        <td>Цель поездки</td>
+        <td>Желаемый отель</td>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Id</td>
+            <td>@item.Initials</td>
+            <td>@item.Age</td>
+            <td>@item.Passport</td>
+            <td>@item.Gender</td>
+            <td>@item.Children_count</td>
+            <td>@item.Visit_purpose</td>
+            <td>@Html.DisplayFor(modelItem => item.Hotel.Name)</td>
+        </tr>
+    }
+</table>

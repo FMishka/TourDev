@@ -1,0 +1,35 @@
+﻿@model IEnumerable<Tourist>
+
+@using(Html.BeginForm()){
+    <p>
+        Поиск по цели:
+        <select class="form-select" name="searchPurpose" asp-items="ViewBag.Purposes">
+            <option class="dropdown-item" value="">Выбирите цель</option>
+        </select>
+        <input type="submit" value="Search" class="btn btn-success"/>
+    </p>
+}
+<table class="table" style="color: white">
+    <tr>
+        <td>Желаемый отель</td>
+        <td>Звёздность</td>
+        <td>Ид</td>
+        <td>Цель поездки</td>
+        <td>Имя</td>
+        <td>Возраст</td>
+        <td>Кол-во детей</td>
+        
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@Html.DisplayFor(modelItem => item.Hotel.Name)</td>
+            <td>@Html.DisplayFor(modelItem => item.Hotel.Rating)</td>
+            <td>@item.Id</td>
+            <td>@item.Visit_purpose</td>
+            <td>@item.Initials</td>
+            <td>@item.Age</td>
+            <td>@item.Children_count</td>
+        </tr>
+    }
+</table>

@@ -1,0 +1,40 @@
+﻿@model IEnumerable<Ticket>
+@{
+    ViewData["Title"] = "Туристы";
+}
+<table class="table" style="color: white">
+    <tr>
+        <td>Ид</td>
+        <td>Инициалы туриста</td>
+        <td>Дата прилёта</td>
+        <td>Дата отлёта</td>
+        <td>Страна</td>
+        <td>Номер багажа</td>
+        <td>Тур</td>
+        <td>Номер группы</td>
+        <td>Отель</td>
+        <td>Цена</td>
+        <td>Рейс</td>
+        <td>Функция</td>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Id</td>
+            <td>@item.Tourist.Initials</td>
+            <td>@item.Arrival_date.ToShortDateString()</td>
+            <td>@item.Departure_date.ToShortDateString()</td>
+            <td>@item.Country</td>
+            <td>@item.Bag.Id</td>
+            <td>@item.Tour.Name</td>
+            <td>@item.GroupId</td>
+            <td>@item.Hotel.Name</td>
+            <td>@item.Cost</td>
+            <td>@item.Flight.Name</td>
+            <td>
+                <a class="btn btn-warning" href="~/Admin/Edit?Id=@item.Id">Изменить</a>
+                <a class="btn btn-danger" href="~/Admin/Delete?Id=@item.Id">Удалить</a>
+            </td>
+        </tr>
+    }
+</table>
